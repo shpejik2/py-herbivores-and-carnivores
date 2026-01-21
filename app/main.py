@@ -1,6 +1,9 @@
+from typing import List
+
+
 class Animal:
 
-    alive = []
+    alive: List[Animal] = []
 
     def __init__(self, name: str, health: int = 100) -> None:
         if health <= 0:
@@ -19,10 +22,7 @@ class Animal:
 class Herbivore(Animal):
 
     def hide(self) -> None:
-        if self.hidden:
-            self.hidden = False
-        else:
-            self.hidden = True
+        self.hidden = not self.hidden
 
 
 class Carnivore(Animal):
